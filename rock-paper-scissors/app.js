@@ -17,95 +17,70 @@ function compChoice() {
   const randomNum = Math.floor(Math.random() * 3);
   return choices[randomNum];
 }
-// console.log(compChoice());
 function win(user, computer) {
-  console.log('Win');
-  // console.log('User picks ', user);
-  // console.log('Computer picks ', computer);
-  userScore++;
-  userScoreDom.innerHTML = userScore;
   const uniqU = user.fontsize(3);
   const uniqC = computer.fontsize(3);
+  const userSelect = document.getElementById(user);
+  console.log('Win');
+  userScore++;
+  userScoreDom.innerHTML = userScore;
   resultDom.innerHTML = `You selected
     ${uniqU}, it beats 
     ${uniqC}. You Win!!! Way to go!! `;
-  // console.log('User' + userScore);
-  document.getElementById(user).classList.add('glow');
-  setTimeout(function () {
-    document.getElementById(user).classList.remove('glow');
-  }, 300);
+  userSelect.classList.add('glow');
+  setTimeout(() => userSelect.classList.remove('glow'), 300);
 }
 
-// setTimeout(function () {
-//   console.log('hi');
-// }, 3000);
-
 function lose(user, computer) {
-  console.log('Loser');
-  // console.log('User picks ', user);
-  // console.log('Computer picks ', computer);
-  compScore++;
-  compScoreDom.innerHTML = compScore;
   const uniqU = user.fontsize(3);
   const uniqC = computer.fontsize(3);
+  const userSelect = document.getElementById(user);
+  console.log('Loser');
+  compScore++;
+  compScoreDom.innerHTML = compScore;
   resultDom.innerHTML = `Computer get's a point. 
   ${uniqC} beats ${uniqU}. You Lose!!! `;
-  document.getElementById(user).classList.add('red');
-  setTimeout(function () {
-    document.getElementById(user).classList.remove('red');
-  }, 300);
-  // console.log('User' + userScore);
-  // console.log('Computer' + compScore);
+  userSelect.classList.add('red');
+  setTimeout(() => userSelect.classList.remove('red'), 300);
 }
 
 function draw(user) {
   const uniqU = user.fontsize(3);
   resultDom.innerHTML = `It's a Draw!!! You both selected ${uniqU}.`;
-  // console.log('User' + userScore);
   console.log('DRAW');
-  // console.log('User picks ', user);
-  // console.log('Computer picks ', computer);
 }
 
 function game(userChoice) {
   const computerChoice = compChoice();
-  //   console.log('I choose ' + userChoice);
-  //   console.log('Computer chose ' + computerChoice);
   switch (userChoice + computerChoice) {
     case 'RockScissors':
     case 'PaperRock':
     case 'ScissorsPaper':
       win(userChoice, computerChoice);
-      //console.log('You Win!!!');
       break;
     case 'RockPaper':
     case 'ScissorsRock':
     case 'PaperScissors':
       lose(userChoice, computerChoice);
-      //console.log('You Lose');
       break;
     case 'RockRock':
     case 'PaperPaper':
     case 'ScissorsScissors':
       draw(userChoice, computerChoice);
-      //console.log('DRAW');
       break;
   }
 }
 
 function main() {
   rockDom.addEventListener('click', function () {
-    //console.log('This is a ROCK');
     game('Rock');
   });
 
   paperDom.addEventListener('click', function () {
-    //console.log('This is PAPER');
     game('Paper');
   });
 
   scissorsDom.addEventListener('click', function () {
-    //console.log('These are Scissors!');
     game('Scissors');
   });
 }

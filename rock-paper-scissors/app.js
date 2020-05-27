@@ -24,12 +24,9 @@ function win(user, computer) {
   // console.log('Computer picks ', computer);
   userScore++;
   userScoreDom.innerHTML = userScore;
-  resultDom.innerHTML =
-    'You selected ' +
-    user +
-    ', it beats ' +
-    computer +
-    '. You Win!!! Way to go!! ';
+  resultDom.innerHTML = `You selected
+    ${user}, it beats 
+    ${computer}. You Win!!! Way to go!! `;
   // console.log('User' + userScore);
 }
 
@@ -38,15 +35,14 @@ function lose(user, computer) {
   // console.log('User picks ', user);
   // console.log('Computer picks ', computer);
   compScore++;
-  resultDom.innerHTML =
-    "Computer get's a point. " + computer + ' beats ' + user + '. You Lose!!! ';
+  resultDom.innerHTML = `Computer get's a point. ${computer} beats ${user}. You Lose!!! `;
   // console.log('User' + userScore);
   compScoreDom.innerHTML = compScore;
   // console.log('Computer' + compScore);
 }
 
-function draw(user, computer) {
-  resultDom.innerHTML = "It's a Draw!!! You both selected " + user + '.';
+function draw(user) {
+  resultDom.innerHTML = `It's a Draw!!! You both selected ${user}.`;
   // console.log('User' + userScore);
   console.log('DRAW');
   // console.log('User picks ', user);

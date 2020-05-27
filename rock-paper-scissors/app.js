@@ -72,17 +72,11 @@ function game(userChoice) {
 }
 
 function main() {
-  rockDom.addEventListener('click', function () {
-    game('Rock');
-  });
+  rockDom.addEventListener('click', () => game('Rock'));
 
-  paperDom.addEventListener('click', function () {
-    game('Paper');
-  });
+  paperDom.addEventListener('click', () => game('Paper'));
 
-  scissorsDom.addEventListener('click', function () {
-    game('Scissors');
-  });
+  scissorsDom.addEventListener('click', () => game('Scissors'));
 }
 
 main();

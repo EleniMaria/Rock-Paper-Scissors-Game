@@ -18,28 +18,39 @@ function compChoice() {
   return choices[randomNum];
 }
 // console.log(compChoice());
-function win() {
-  //   console.log('Win');
-
+function win(user, computer) {
+  console.log('Win');
+  // console.log('User picks ', user);
+  // console.log('Computer picks ', computer);
   userScore++;
   userScoreDom.innerHTML = userScore;
-  resultDom.innerHTML = 'You Win!!! Way to go!! ';
-  console.log('User' + userScore);
+  resultDom.innerHTML =
+    'You selected ' +
+    user +
+    ', it beats ' +
+    computer +
+    '. You Win!!! Way to go!! ';
+  // console.log('User' + userScore);
 }
 
-function lose() {
+function lose(user, computer) {
   console.log('Loser');
+  // console.log('User picks ', user);
+  // console.log('Computer picks ', computer);
   compScore++;
-  resultDom.innerHTML = "Computer get's a point. You Lose!!! ";
-  console.log('User' + userScore);
+  resultDom.innerHTML =
+    "Computer get's a point. " + computer + ' beats ' + user + '. You Lose!!! ';
+  // console.log('User' + userScore);
   compScoreDom.innerHTML = compScore;
-  console.log('Computer' + compScore);
+  // console.log('Computer' + compScore);
 }
 
 function draw(user, computer) {
-  resultDom.innerHTML = "It's a Draw!!! ";
-  console.log('User' + userScore);
+  resultDom.innerHTML = "It's a Draw!!! You both selected " + user + '.';
+  // console.log('User' + userScore);
   console.log('DRAW');
+  // console.log('User picks ', user);
+  // console.log('Computer picks ', computer);
 }
 
 function game(userChoice) {
@@ -50,19 +61,19 @@ function game(userChoice) {
     case 'RockScissors':
     case 'PaperRock':
     case 'ScissorsPaper':
-      win();
+      win(userChoice, computerChoice);
       //console.log('You Win!!!');
       break;
     case 'RockPaper':
     case 'ScissorsRock':
     case 'PaperScissors':
-      lose();
+      lose(userChoice, computerChoice);
       //console.log('You Lose');
       break;
     case 'RockRock':
     case 'PaperPaper':
     case 'ScissorsScissors':
-      draw();
+      draw(userChoice, computerChoice);
       //console.log('DRAW');
       break;
   }

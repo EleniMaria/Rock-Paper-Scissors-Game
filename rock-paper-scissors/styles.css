@@ -55,20 +55,30 @@ body {
 }
 
 .choice {
-    display: inline-block;
-    margin: 30px 0px;
-    border: 3px solid whitesmoke;
-    border-radius: 50%;
-    padding: 16px;
-    transition: all 0.3s ease;
+  display: inline-block;
+  margin: 30px 0px;
+  border: 3px solid whitesmoke;
+  border-radius: 50%;
+  padding: 16px;
+  transition: all 0.3s ease;
 }
 
 .choice:hover {
-    cursor: pointer;
-    background: whitesmoke
+  cursor: pointer;
+  background: whitesmoke;
 }
 
 #message {
-    Font-weight: bold;
-    font-size: 30px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.glow {
+  border: 3px solid green;
+  box-shadow: 0 0 10px springgreen;
+}
+
+.red {
+  border: 3px solid red;
+  box-shadow: 0 0 10px orangered;
 }

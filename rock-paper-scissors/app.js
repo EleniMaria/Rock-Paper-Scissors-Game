@@ -24,25 +24,43 @@ function win(user, computer) {
   // console.log('Computer picks ', computer);
   userScore++;
   userScoreDom.innerHTML = userScore;
+  const uniqU = user.fontsize(3);
+  const uniqC = computer.fontsize(3);
   resultDom.innerHTML = `You selected
-    ${user}, it beats 
-    ${computer}. You Win!!! Way to go!! `;
+    ${uniqU}, it beats 
+    ${uniqC}. You Win!!! Way to go!! `;
   // console.log('User' + userScore);
+  document.getElementById(user).classList.add('glow');
+  setTimeout(function () {
+    document.getElementById(user).classList.remove('glow');
+  }, 300);
 }
+
+// setTimeout(function () {
+//   console.log('hi');
+// }, 3000);
 
 function lose(user, computer) {
   console.log('Loser');
   // console.log('User picks ', user);
   // console.log('Computer picks ', computer);
   compScore++;
-  resultDom.innerHTML = `Computer get's a point. ${computer} beats ${user}. You Lose!!! `;
-  // console.log('User' + userScore);
   compScoreDom.innerHTML = compScore;
+  const uniqU = user.fontsize(3);
+  const uniqC = computer.fontsize(3);
+  resultDom.innerHTML = `Computer get's a point. 
+  ${uniqC} beats ${uniqU}. You Lose!!! `;
+  document.getElementById(user).classList.add('red');
+  setTimeout(function () {
+    document.getElementById(user).classList.remove('red');
+  }, 300);
+  // console.log('User' + userScore);
   // console.log('Computer' + compScore);
 }
 
 function draw(user) {
-  resultDom.innerHTML = `It's a Draw!!! You both selected ${user}.`;
+  const uniqU = user.fontsize(3);
+  resultDom.innerHTML = `It's a Draw!!! You both selected ${uniqU}.`;
   // console.log('User' + userScore);
   console.log('DRAW');
   // console.log('User picks ', user);
